@@ -32,7 +32,10 @@ def parse_filter(f, offset):
   if is_terminal:
     f.read(1) # padding
     result = ord(f.read(1))
-    return (True, {0: 'allow', 1: 'deny', 2: 'allow-with-log', 3: 'deny-with-log'}[result])
+    resultstr = {0 : 'allow', 1 : 'deny'}[result & 1]
+    resultstr += {0 : '', 2 : '-with-log'}[result & 2]
+    resultstr += {True : '', False : '-with-unknown-modifiers'}[(result & 0xfffc) == 0]
+    return (True, resultstr)
   else:
     filter, filter_arg, match, unmatch = struct.unpack('<BHHH', f.read(7))
     return (False, (filter, filter_arg), parse_filter(f, match), parse_filter(f, unmatch))
