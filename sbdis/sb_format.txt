@@ -1,0 +1,46 @@
+
+header:
+u2 re_table_offset (8-byte words from start of sb)
+u1 re_table_count (really just the low byte)
+u1 padding
+u2[] op_table (8-byte word offset)
+
+ophandlers:
+u1 opcode
+    01: terminal
+    00: non-terminal
+
+terminal:
+    u1: padding
+    u1: result
+      00: allow
+      01: deny
+
+non-terminal:
+    u1 filter
+        01: path
+        02: xattr
+        03: file-mode
+        04: mach-global
+        05: mach-local
+        06: socket-local
+        07: socket-remote
+        08: signal
+    u2 filter_arg
+    u2 transition_matched
+    u2 transition_unmatched
+
+re_table:
+  u2 re_offset (8-byte word offset)
+  u2 padding
+  u4 padding
+
+re:
+  u4 version? (must be 1 or unpack fails)
+  u4 node_count
+  u4 start_node
+  u4 ??? (end_node? some kind of node index)
+  u4 cclass_count
+  u4 ???
+  node nodes[]
+  cclass cclasses[]

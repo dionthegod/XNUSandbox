@@ -1,0 +1,40 @@
+digraph nfa {
+	/*nodesep=.15;*/
+	rankdir=LR;
+	label = "../sb/sample1.sb.bin.000.re";
+	n16 [shape=Msquare, label="S"]; /* n=0xbffff9e4, type=33, next=n14, data=4294967295 */
+	n15 [shape=Msquare, label="E1"]; /* n=0x10033c, type=34, end */
+	n14 [shape=Mcircle, label="(0"]; /* n=0x100330, type=36, next=n0, data=0 */
+	n13 [shape=Mcircle, label="0)"]; /* n=0x100324, type=35, next=n15, data=0 */
+	n12 [shape=Mcircle, label="$"]; /* n=0x100318, type=51, next=n13, data=4294967295 */
+	n11 [shape=circle, label="o"]; /* n=0x10030c, type=16, next=n12, data=4294967151 */
+	n10 [shape=circle, label="o"]; /* n=0x100300, type=16, next=n11, data=4294967151 */
+	n9 [shape=circle, label="w"]; /* n=0x1002f4, type=16, next=n10, data=4294967159 */
+	n8 [shape=circle, label="o"]; /* n=0x1002e8, type=16, next=n9, data=4294967151 */
+	n7 [shape=circle, label="o"]; /* n=0x1002dc, type=16, next=n8, data=4294967151 */
+	n6 [shape=circle, label="w"]; /* n=0x1002d0, type=16, next=n7, data=4294967159 */
+	n5 [shape=circle, label="/"]; /* n=0x1002c4, type=16, next=n6, data=4294967087 */
+	n4 [shape=circle, label="p"]; /* n=0x1002b8, type=16, next=n5, data=4294967152 */
+	n3 [shape=circle, label="m"]; /* n=0x1002ac, type=16, next=n4, data=4294967149 */
+	n2 [shape=circle, label="t"]; /* n=0x1002a0, type=16, next=n3, data=4294967156 */
+	n1 [shape=circle, label="/"]; /* n=0x100294, type=16, next=n2, data=4294967087 */
+	n0 [shape=Mcircle, label="^"]; /* n=0x100288, type=50, next=n1, data=4294967295 */
+
+	n16 -> n14:w;
+	n0 -> n1:w;
+	n1 -> n2:w;
+	n2 -> n3:w;
+	n3 -> n4:w;
+	n4 -> n5:w;
+	n5 -> n6:w;
+	n6 -> n7:w;
+	n7 -> n8:w;
+	n8 -> n9:w;
+	n9 -> n10:w;
+	n10 -> n11:w;
+	n11 -> n12:w;
+	n12 -> n13:w;
+	n13 -> n15:w;
+	n14 -> n0:w;
+
+}
