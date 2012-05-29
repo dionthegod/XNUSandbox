@@ -1,2 +1,14 @@
+---
+
+NOTE: This code was written for OS X Snow Leopard.  For some updates to
+support (at least to illustrate how to support) iOS 5.x, see the website
+for the "iOS Hacker's Handbook" and the companion downloads for Ch. 5:
+
+http://media.wiley.com/product_ancillary/23/11182041/DOWNLOAD/Ch05code.zip
+
+This book has an entire chapter on the sandbox implementation on iOS.
+
+---
+
 Just a handful of utilities that have helped me examine the design of the
 XNU Sandbox.kext and friends.
